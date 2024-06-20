@@ -7,12 +7,26 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container: {
+      center: true,
+    },
+    screens: {
+      'mobile': '300px',
+        // => @media (min-width: 300px) { ... }
+      'tablet': '425px',
+      // => @media (min-width: 481px) { ... }
+
+      'laptop': '768px',
+      // => @media (min-width: 769px) { ... }
+
+      'desktop': '1024px',
+      // => @media (min-width: 1025px) { ... }
+    },
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
+      colors: {
+        'primary': '#3c2daf', // needs to stand out
+        'secondary': '#634fff', // to stand out colors good for buttons
+      }
     },
   },
   plugins: [],
