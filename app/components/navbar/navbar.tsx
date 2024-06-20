@@ -8,13 +8,14 @@ import { ImCross } from "react-icons/im";
 
 const links = [
 	{ title: "Home", path: "/" },
+	{ title: "About", path: "/about" },
 	{ title: "Contact", path: "/contact" },
 ];
 
 const Navbar = () => {
 	const [open, setOpen] = useState(false);
-	const session = true;
-	const isAdmin = false;
+	const session = false;
+	const isAdmin = true;
 
 	return (
 		<nav className="Navbar flex justify-between items-center mobile:py-4 laptop:py-6">
@@ -26,7 +27,7 @@ const Navbar = () => {
 				{links.map(({ title, path }) => (
 					<Navlink key={title} title={title} path={path} />
 				))}
-				<button className="Logout">Sign Out</button>
+				{session && <button className="Logout">Sign Out</button>}
 			</ul>
 
 			{open && <div className="absolute top-0 left-0 bg-indigo-500 w-screen  h-screen MobileLinks z-50 flex justify-center items-center">
@@ -34,7 +35,7 @@ const Navbar = () => {
 					{links.map(({ title, path }) => (
 						<Navlink key={title} title={title} path={path} />
 					))}
-					<button className="Logout">Sign Out</button>
+					{session && <button className="Logout">Sign Out</button>}
 				</ul>
 			</div>}
 
