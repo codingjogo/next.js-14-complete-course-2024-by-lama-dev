@@ -1,4 +1,4 @@
-import BackButton from "@/app/components/back-button";
+import BackButton from "@/components/back-button";
 import { getDataById } from "@/app/lib/data";
 import Image from "next/image";
 import React from "react";
