@@ -21,7 +21,7 @@ const BlogPage = async ({ params }: { params: {slug: string} }) => {
     console.log(slug);
 
 	return (
-		<section className="BlogPage">
+		<main className="BlogPage">
 			<div className="container">
 				<h1 className="text-4xl">Blog Page</h1>
 				<div className="grid mobile:grid-cols-1 laptop:grid-cols-3">
@@ -40,7 +40,7 @@ const BlogPage = async ({ params }: { params: {slug: string} }) => {
 					))}
 				</div>
 			</div>
-		</section>
+		</main>
 	);
 };
 
