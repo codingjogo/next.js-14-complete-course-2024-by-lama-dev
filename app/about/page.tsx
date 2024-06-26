@@ -6,7 +6,8 @@ import React from 'react'
 const AboutPage = () => {
     const router = useRouter();
     return (
-        <div className='AboutPage'>
+        <main className='AboutPage'>
+            <div className="container">
             <h1 className='text-4xl mb-6'>About Page</h1>
             <h2 className='text-3xl mb-4'>This is for testing navigation topic only</h2>
             <button onClick={() => {
@@ -18,7 +19,8 @@ const AboutPage = () => {
                 // .forward() will go to the next page
                 router.replace('/');
             }}>Go to Home Page</button>
-        </div>
+            </div>
+        </main>
     )
 }
 

@@ -1,6 +1,7 @@
-'use client';
+"use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 const links = [
@@ -9,29 +10,34 @@ const links = [
 ];
 
 const Navbar = () => {
+	const pathname = usePathname();
 	return (
-		<nav className="Navbar flex items-center justify-between">
-			<Link href={"/"}>Logo</Link>
-			<ul className="flex items-center">
-				{links.map(({ href, label }) => {
-					return (
-						<li key={href}>
-							<NavLink href={href} label={label} />
-						</li>
-					);
-				})}
-				<li></li>
-			</ul>
+		<nav className="Navbar">
+			<div className="container flex items-center justify-between">
+				<Link 
+				className="text-4xl font-semibold"
+				href={"/"}>Logo</Link>
+				<ul className="hidden laptop:flex items-center">
+					{links.map(({ href, label }) => {
+						return (
+							<li 
+							key={href}
+							className={`${pathname === href ? 'bg-white text-black' : ''} py-2 px-4`}
+							>
+								<NavLink href={href} label={label} />
+							</li>
+						);
+					})}
+					<li></li>
+				</ul>
+				
+			</div>
 		</nav>
 	);
 };
 
 const NavLink = ({ href, label }: { href: string; label: string }) => {
-	return (
-		<Link href={href}>
-			{label}
-		</Link>
-	);
+	return <Link href={href}>{label}</Link>;
 };
 
 export default Navbar;
